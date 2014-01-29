@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2014 5:19:55 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="generate.UsersSportTeams" table="Users_SportTeams" schema="dbo" catalog="XOSTeamExchange">
+        <id name="usersSportTeamsId" type="int">
+            <column name="Users_SportTeamsId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="users" class="generate.Users" fetch="select">
+            <column name="UserId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userSportTeamPermissions" class="generate.UserSportTeamPermissions" fetch="select">
+            <column name="UserSportTeamPermissionId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sportTeams" class="generate.SportTeams" fetch="select">
+            <column name="SportTeamId" not-null="true" />
+        </many-to-one>
+        <property name="userSportTeamCreatedDate" type="timestamp">
+            <column name="User_SportTeam_CreatedDate" length="16" not-null="true" />
+        </property>
+        <property name="userSportTeamIsActive" type="boolean">
+            <column name="User_SportTeam_IsActive" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

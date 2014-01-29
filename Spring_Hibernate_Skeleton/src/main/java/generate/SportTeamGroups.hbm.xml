@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2014 5:19:55 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="generate.SportTeamGroups" table="SportTeamGroups" schema="dbo" catalog="XOSTeamExchange">
+        <id name="sportTeamGroupId" type="int">
+            <column name="SportTeamGroupId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sportTypes" class="generate.SportTypes" fetch="select">
+            <column name="SportTypeId" not-null="true" />
+        </many-to-one>
+        <property name="sportTeamGroupName" type="string">
+            <column name="SportTeamGroupName" length="100" not-null="true" />
+        </property>
+        <property name="leagueId" type="short">
+            <column name="LeagueId" not-null="true" />
+        </property>
+        <property name="sportTeamGroupCreatedDate" type="timestamp">
+            <column name="SportTeamGroup_CreatedDate" length="16" not-null="true" />
+        </property>
+        <property name="sportTeamGroupIsActive" type="boolean">
+            <column name="SportTeamGroup_IsActive" not-null="true" />
+        </property>
+        <property name="sportTeamOwnerId" type="java.lang.Integer">
+            <column name="SportTeamOwnerId" />
+        </property>
+        <set name="sportTeamsSportTeamGroupses" table="SportTeams_SportTeamGroups" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SportTeamGroupId" not-null="true" />
+            </key>
+            <one-to-many class="generate.SportTeamsSportTeamGroups" />
+        </set>
+    </class>
+</hibernate-mapping>

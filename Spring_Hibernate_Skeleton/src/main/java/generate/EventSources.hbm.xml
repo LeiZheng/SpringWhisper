@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2014 5:19:55 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="generate.EventSources" table="EventSources" schema="dbo" catalog="XOSTeamExchange">
+        <id name="eventSourceId" type="short">
+            <column name="EventSourceId" />
+            <generator class="assigned" />
+        </id>
+        <property name="eventSourceName" type="string">
+            <column name="EventSourceName" length="50" not-null="true" />
+        </property>
+        <property name="eventSourceCreatedDate" type="timestamp">
+            <column name="EventSource_CreatedDate" length="16" not-null="true" />
+        </property>
+        <property name="eventSourceIsActive" type="boolean">
+            <column name="EventSource_IsActive" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

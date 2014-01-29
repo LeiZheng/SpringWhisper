@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2014 5:19:55 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="generate.Migration" table="Migration" schema="dbo" catalog="XOSTeamExchange">
+        <id name="tcxAssetId" type="int">
+            <column name="TCX_Asset_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="vaultAssetId" type="string">
+            <column name="Vault_Asset_ID" length="256" not-null="true" />
+        </property>
+        <property name="vaultResourcePath" type="string">
+            <column name="Vault_Resource_Path" length="1024" />
+        </property>
+        <property name="azureBlobPath" type="string">
+            <column name="Azure_Blob_Path" length="1024" />
+        </property>
+        <property name="migrationStatus" type="string">
+            <column name="Migration_Status" length="256" not-null="true" />
+        </property>
+        <property name="resourceMd5" type="string">
+            <column name="Resource_MD5" length="256" />
+        </property>
+        <property name="status" type="string">
+            <column name="Status" length="2048" not-null="true" />
+        </property>
+        <property name="resourceSha1" type="string">
+            <column name="Resource_SHA1" length="256" />
+        </property>
+    </class>
+</hibernate-mapping>

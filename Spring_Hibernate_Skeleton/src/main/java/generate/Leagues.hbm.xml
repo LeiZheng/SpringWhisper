@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2014 5:19:55 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="generate.Leagues" table="Leagues" schema="dbo" catalog="XOSTeamExchange">
+        <id name="leagueId" type="short">
+            <column name="LeagueId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sportTypes" class="generate.SportTypes" fetch="select">
+            <column name="SportTypeId" not-null="true" />
+        </many-to-one>
+        <property name="leagueName" type="string">
+            <column name="LeagueName" length="30" not-null="true" />
+        </property>
+        <property name="leagueCreatedDate" type="timestamp">
+            <column name="League_CreatedDate" length="16" not-null="true" />
+        </property>
+        <property name="leagueIsActive" type="boolean">
+            <column name="League_IsActive" not-null="true" />
+        </property>
+        <property name="orderby" type="java.lang.Short">
+            <column name="orderby" />
+        </property>
+    </class>
+</hibernate-mapping>

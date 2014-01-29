@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2014 5:19:55 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="generate.Users" table="Users" schema="dbo" catalog="XOSTeamExchange">
+        <id name="userId" type="int">
+            <column name="UserId" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="string">
+            <column name="Password" not-null="true" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="FirstName" length="50" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LastName" length="50" not-null="true" />
+        </property>
+        <property name="emailAddress" type="string">
+            <column name="EmailAddress" length="50" not-null="true" />
+        </property>
+        <property name="cellPhone" type="string">
+            <column name="CellPhone" length="50" />
+        </property>
+        <property name="mobileCarrier" type="string">
+            <column name="MobileCarrier" length="50" />
+        </property>
+        <property name="resetPasswordOnNextLogin" type="boolean">
+            <column name="ResetPasswordOnNextLogin" not-null="true" />
+        </property>
+        <property name="isSiteAdministrator" type="boolean">
+            <column name="isSiteAdministrator" not-null="true" />
+        </property>
+        <property name="isGlobalUserAdministrator" type="boolean">
+            <column name="isGlobalUserAdministrator" not-null="true" />
+        </property>
+        <property name="isTeamUserAdministrator" type="boolean">
+            <column name="isTeamUserAdministrator" not-null="true" />
+        </property>
+        <property name="userCreatedDate" type="timestamp">
+            <column name="User_CreatedDate" length="16" not-null="true" />
+        </property>
+        <property name="userIsActive" type="boolean">
+            <column name="User_IsActive" not-null="true" />
+        </property>
+        <set name="userSettingses" table="UserSettings" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserId" not-null="true" />
+            </key>
+            <one-to-many class="generate.UserSettings" />
+        </set>
+        <set name="usersSportTeamses" table="Users_SportTeams" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserId" not-null="true" />
+            </key>
+            <one-to-many class="generate.UsersSportTeams" />
+        </set>
+        <set name="assetsSportTeamses" table="Assets_SportTeams" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SharedByUserId" not-null="true" />
+            </key>
+            <one-to-many class="generate.AssetsSportTeams" />
+        </set>
+    </class>
+</hibernate-mapping>

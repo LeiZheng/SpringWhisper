@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2014 5:19:55 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="generate.UserSportTeamPermissions" table="UserSportTeamPermissions" schema="dbo" catalog="XOSTeamExchange">
+        <id name="userSportTeamPermissionId" type="short">
+            <column name="UserSportTeamPermissionId" />
+            <generator class="assigned" />
+        </id>
+        <property name="userSportTeamPermissionName" type="string">
+            <column name="UserSportTeamPermissionName" length="50" not-null="true" />
+        </property>
+        <property name="userSportTeamPermissionIsActive" type="boolean">
+            <column name="UserSportTeamPermission_IsActive" not-null="true" />
+        </property>
+        <set name="usersSportTeamses" table="Users_SportTeams" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserSportTeamPermissionId" not-null="true" />
+            </key>
+            <one-to-many class="generate.UsersSportTeams" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2014 5:19:55 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="generate.DownloadHistory" table="DownloadHistory" schema="dbo" catalog="XOSTeamExchange">
+        <id name="downloadHistoryId" type="long">
+            <column name="DownloadHistoryId" />
+            <generator class="assigned" />
+        </id>
+        <property name="sportTeamId" type="int">
+            <column name="SportTeamId" not-null="true" />
+        </property>
+        <property name="userId" type="int">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="assetId" type="long">
+            <column name="AssetId" not-null="true" />
+        </property>
+        <property name="downloadDate" type="timestamp">
+            <column name="DownloadDate" length="23" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

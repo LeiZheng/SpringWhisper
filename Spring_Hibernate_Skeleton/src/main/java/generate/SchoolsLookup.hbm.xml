@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2014 5:19:55 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="generate.SchoolsLookup" table="SchoolsLookup" schema="dbo" catalog="XOSTeamExchange">
+        <id name="itemId" type="int">
+            <column name="ItemID" />
+            <generator class="assigned" />
+        </id>
+        <property name="fullName" type="serializable">
+            <column name="full_name" />
+        </property>
+        <property name="abbrName" type="serializable">
+            <column name="abbr_name" />
+        </property>
+        <property name="shortName" type="serializable">
+            <column name="short_name" />
+        </property>
+        <property name="initials" type="serializable">
+            <column name="initials" />
+        </property>
+        <property name="nick" type="serializable">
+            <column name="nick" />
+        </property>
+        <property name="abbrAlias" type="serializable">
+            <column name="abbr_alias" />
+        </property>
+        <property name="primaryHexColor" type="serializable">
+            <column name="primary_hex_color" />
+        </property>
+        <property name="confId" type="java.lang.Integer">
+            <column name="Conf_ID" />
+        </property>
+        <property name="conference" type="serializable">
+            <column name="conference" />
+        </property>
+        <property name="division" type="serializable">
+            <column name="division" />
+        </property>
+        <property name="logo50" type="serializable">
+            <column name="logo_50" />
+        </property>
+        <property name="logo85" type="serializable">
+            <column name="logo_85" />
+        </property>
+        <property name="logo" type="serializable">
+            <column name="logo" />
+        </property>
+        <property name="altLogo" type="serializable">
+            <column name="alt_logo" />
+        </property>
+        <property name="city" type="serializable">
+            <column name="city" />
+        </property>
+        <property name="state" type="serializable">
+            <column name="state" />
+        </property>
+        <property name="zip" type="serializable">
+            <column name="zip" />
+        </property>
+        <property name="educationalUrl" type="serializable">
+            <column name="educational_url" />
+        </property>
+        <property name="athleticsUrl" type="serializable">
+            <column name="athletics_url" />
+        </property>
+        <property name="homeFbStadium" type="serializable">
+            <column name="home_fb_stadium" />
+        </property>
+        <property name="menBasketballTeam" type="serializable">
+            <column name="men_basketball_team" />
+        </property>
+        <property name="womenBbArena" type="serializable">
+            <column name="women_bb_arena" />
+        </property>
+        <property name="homeBaseballField" type="serializable">
+            <column name="home_baseball_field" />
+        </property>
+        <property name="homeSoftballField" type="serializable">
+            <column name="home_softball_field" />
+        </property>
+        <property name="homeSoccerField" type="serializable">
+            <column name="home_soccer_field" />
+        </property>
+        <property name="homeGolfCourse" type="serializable">
+            <column name="home_golf_course" />
+        </property>
+        <property name="lacrosseField" type="serializable">
+            <column name="lacrosse_field" />
+        </property>
+        <property name="fieldHockey" type="serializable">
+            <column name="field_hockey" />
+        </property>
+        <property name="swimDivCenter" type="serializable">
+            <column name="swim_div_center" />
+        </property>
+        <property name="tennisCourt" type="serializable">
+            <column name="tennis_court" />
+        </property>
+        <property name="trackField" type="serializable">
+            <column name="track_Field" />
+        </property>
+        <property name="volleyball" type="serializable">
+            <column name="volleyball" />
+        </property>
+        <property name="crossCountry" type="serializable">
+            <column name="cross_country" />
+        </property>
+        <property name="rowing" type="serializable">
+            <column name="rowing" />
+        </property>
+        <property name="websiteProvider" type="serializable">
+            <column name="website_provider" />
+        </property>
+        <property name="dataTrack" type="serializable">
+            <column name="Data_Track" />
+        </property>
+        <property name="schoolKey" type="serializable">
+            <column name="SchoolKey" />
+        </property>
+        <property name="vaultName" type="serializable">
+            <column name="vault_name" />
+        </property>
+        <property name="nmnSchoolId" type="java.lang.Integer">
+            <column name="NMN_SchoolId" />
+        </property>
+        <property name="statsLlcCollegeId" type="java.lang.Integer">
+            <column name="StatsLLC_CollegeId" />
+        </property>
+        <property name="statsLlcFbglobalId" type="java.lang.Integer">
+            <column name="StatsLLC_FBGlobalId" />
+        </property>
+        <property name="statsLlcBbglobalId" type="java.lang.Integer">
+            <column name="StatsLLC_BBGlobalId" />
+        </property>
+        <property name="statsLlcBkglobalId" type="java.lang.Integer">
+            <column name="StatsLLC_BKGlobalId" />
+        </property>
+    </class>
+</hibernate-mapping>

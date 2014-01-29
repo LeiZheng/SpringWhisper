@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2014 5:19:55 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="generate.Assets" table="Assets" schema="dbo" catalog="XOSTeamExchange">
+        <id name="assetId" type="long">
+            <column name="AssetId" />
+            <generator class="foreign">
+                <param name="property">assets</param>
+            </generator>
+        </id>
+        <many-to-one name="sportTypes" class="generate.SportTypes" fetch="select">
+            <column name="SportsTypeId" not-null="true" />
+        </many-to-one>
+        <one-to-one name="assets" class="generate.Assets" constrained="true"></one-to-one>
+        <property name="vaid" type="string">
+            <column name="VAID" length="36" not-null="true" />
+        </property>
+        <property name="xaid" type="string">
+            <column name="XAID" length="250" not-null="true" />
+        </property>
+        <property name="gameDate" type="timestamp">
+            <column name="GameDate" length="16" not-null="true" />
+        </property>
+        <property name="homeTeamId" type="int">
+            <column name="HomeTeamId" not-null="true" />
+        </property>
+        <property name="awayTeamId" type="int">
+            <column name="AwayTeamId" not-null="true" />
+        </property>
+        <property name="filmedByTeamId" type="int">
+            <column name="FilmedByTeamId" not-null="true" />
+        </property>
+        <property name="size" type="long">
+            <column name="Size" not-null="true" />
+        </property>
+        <property name="title" type="string">
+            <column name="Title" length="250" not-null="true" />
+        </property>
+        <property name="assetFileName" type="string">
+            <column name="AssetFileName" length="250" not-null="true" />
+        </property>
+        <property name="metaData" type="serializable">
+            <column name="MetaData" />
+        </property>
+        <property name="availableForDownload" type="boolean">
+            <column name="AvailableForDownload" not-null="true" />
+        </property>
+        <property name="isUploaded" type="boolean">
+            <column name="IsUploaded" not-null="true" />
+        </property>
+        <property name="assetCreatedDate" type="timestamp">
+            <column name="Asset_CreatedDate" length="16" not-null="true" />
+        </property>
+        <property name="assetInActiveDate" type="timestamp">
+            <column name="Asset_InActiveDate" length="16" />
+        </property>
+        <property name="assetIsActive" type="boolean">
+            <column name="Asset_IsActive" not-null="true" />
+        </property>
+        <set name="assetsSportTeamses" table="Assets_SportTeams" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="AssetId" not-null="true" />
+            </key>
+            <one-to-many class="generate.AssetsSportTeams" />
+        </set>
+        <set name="assetSportTeamOwnershipLogs" table="AssetSportTeamOwnershipLog" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="AssetId" not-null="true" />
+            </key>
+            <one-to-many class="generate.AssetSportTeamOwnershipLog" />
+        </set>
+        <one-to-one name="assets" class="generate.Assets"></one-to-one>
+    </class>
+</hibernate-mapping>

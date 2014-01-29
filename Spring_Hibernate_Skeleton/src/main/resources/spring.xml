@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- use apache DBCP data source -->
+	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="url" value="jdbc:hsqldb:hsql://localhost:9001" />
+		<property name="username" value="sa" />
+		<property name="password" value="" />
+	</bean>
+	<!--  -->
+	<bean id="mySessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		
+		<property name="dataSource" ref = "myDataSource" />
+		        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <!-- property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property-->
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+		
+		<property name="packagesToScan" value="com.xosdigital.tcx.domain" />
+	</bean>
+	
+	<bean id="myTxManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="mySessionFactory"/>        
+    </bean>
+    
+    <tx:annotation-driven />
+    <context:component-scan 
+    base-package="com.springwhisper.dao.impl" />
+        <context:component-scan 
+    base-package="com.springwhisper.service.impl" />
+
+</beans>

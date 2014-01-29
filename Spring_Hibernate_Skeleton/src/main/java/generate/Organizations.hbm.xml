@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2014 5:19:55 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="generate.Organizations" table="Organizations" schema="dbo" catalog="XOSTeamExchange">
+        <id name="organizationId" type="int">
+            <column name="OrganizationId" />
+            <generator class="assigned" />
+        </id>
+        <property name="organizationName" type="string">
+            <column name="OrganizationName" length="100" not-null="true" />
+        </property>
+        <property name="abbreviation" type="string">
+            <column name="Abbreviation" length="50" />
+        </property>
+        <property name="initials" type="string">
+            <column name="Initials" length="10" />
+        </property>
+        <property name="maxStorageSize" type="big_decimal">
+            <column name="MaxStorageSize" precision="8" not-null="true" />
+        </property>
+        <property name="storageCurrentlyAllocated" type="big_decimal">
+            <column name="StorageCurrentlyAllocated" precision="8" not-null="true" />
+        </property>
+        <property name="organizationCreatedDate" type="timestamp">
+            <column name="Organization_CreatedDate" length="16" not-null="true" />
+        </property>
+        <property name="organizationIsActive" type="boolean">
+            <column name="Organization_IsActive" not-null="true" />
+        </property>
+        <property name="isValidated" type="boolean">
+            <column name="IsValidated" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

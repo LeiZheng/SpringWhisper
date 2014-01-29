@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2014 5:19:55 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="generate.AssetSportTeamOwnershipLog" table="AssetSportTeamOwnershipLog" schema="dbo" catalog="XOSTeamExchange">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="assets" class="generate.Assets" fetch="select">
+            <column name="AssetId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sportTeams" class="generate.SportTeams" fetch="select">
+            <column name="SportTeamId" not-null="true" />
+        </many-to-one>
+        <property name="ownershipStartDate" type="timestamp">
+            <column name="OwnershipStartDate" length="23" not-null="true" />
+        </property>
+        <property name="ownershipEndDate" type="timestamp">
+            <column name="OwnershipEndDate" length="23" />
+        </property>
+        <property name="sharedByUserId" type="int">
+            <column name="SharedByUserId" not-null="true" />
+        </property>
+        <property name="endedByUserId" type="java.lang.Integer">
+            <column name="EndedByUserId" />
+        </property>
+    </class>
+</hibernate-mapping>
